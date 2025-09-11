@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use Inertia\Inertia;
 use App\Http\Controllers\Contoh;
+use App\Http\Controllers\ProductController;
 
 // Route::get('/', function () {
 //     return Inertia::render('welcome');
@@ -23,3 +24,6 @@ Route::get('/checkout', function () {
 
 // perccobaan aksese dari controller
 Route::get('/contoh', [Contoh::class, 'index']);
+
+// langsung pakai resource karena sudah ada controller dari perintah -r
+Route::resource('products', ProductController::class);
