@@ -26,7 +26,7 @@ Route::get('/products/create', [ProductController::class, 'create'])->name('prod
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 // Route::resource('products', ProductController::class);
 Route::get('/products/edit', [ProductController::class, 'edit'])->name('products.edit');
-// Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::post('/products', [ProductController::class, 'update'])->name('products.update');
 
 // Route::get('/categories', function () {
 //     return view('dashbord.categories.index'); 

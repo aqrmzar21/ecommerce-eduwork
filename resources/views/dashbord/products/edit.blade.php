@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Tambah Produk Baru') }}
+            {{ __('Edit Produk') }}
         </h2>
     </x-slot>
 
@@ -15,12 +15,11 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('products.store') }}" method="POST">
+                <form action="{{ route('products.update', $product->id) }}" method="POST">
                     @csrf
-                    
-                    <div class="mb-4">
+                    @method('PUT') <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Produk</label>
-                        <input type="text" name="name" id="name" value="{{ old('name') }}" required
+                        <input type="text" name="name" id="name" value="{{ old('name', $product->name) }}" required
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         @error('name')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
@@ -30,9 +29,10 @@
                     <div class="mb-4">
                         <label for="product_categories_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori</label>
                         <select name="product_categories_id" id="product_categories_id" required
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Pilih Kategori">
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <option value="">Pilih Kategori</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('product_categories_id') == $category->id ? 'selected' : '' }}>
+                                <option value="{{ $category->id }}" {{ (old('product_categories_id', $product->product_categories_id) == $category->id) ? 'selected' : '' }}>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
@@ -44,7 +44,7 @@
                     
                     <div class="mb-4">
                         <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Harga</label>
-                        <input type="number" name="price" id="price" value="{{ old('price') }}" required
+                        <input type="number" name="price" id="price" value="{{ old('price', $product->price) }}" required
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         @error('price')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
@@ -53,7 +53,7 @@
 
                     <div class="mb-4">
                         <label for="stock" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Stok</label>
-                        <input type="number" name="stock" id="stock" value="{{ old('stock') }}" required
+                        <input type="number" name="stock" id="stock" value="{{ old('stock', $product->stock) }}" required
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         @error('stock')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
@@ -63,7 +63,7 @@
                     <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Deskripsi</label>
                         <textarea name="description" id="description" rows="4" required
-                                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('description') }}</textarea>
+                                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('description', $product->description) }}</textarea>
                         @error('description')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -71,7 +71,8 @@
                     
                     <div class="mb-4">
                         <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL Gambar</label>
-                        <input type="url" name="image" id="image" value="{{ old('image') }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        <input type="url" name="image" id="image" value="{{ old('image', $product->image) }}" 
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         @error('image')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -79,7 +80,7 @@
 
                     <div class="flex items-center justify-end">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-                            Tambah Produk
+                            Simpan Perubahan
                         </button>
                     </div>
                 </form>
