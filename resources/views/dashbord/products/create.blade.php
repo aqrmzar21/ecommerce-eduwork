@@ -29,19 +29,19 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="product_categories_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori</label>
-                        <select name="product_categories_id" id="product_categories_id" required
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Pilih Kategori">
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('product_categories_id') == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('product_categories_id')
-                            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
+  <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Kategori</label>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    @foreach ($categories as $category)
+      <label class="inline-flex items-center space-x-2">
+        <input type="radio" name="product_categories_id" value="{{ $category->id }}" {{ old('product_categories_id') == $category->id ? 'checked' : '' }} class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+        <span class="text-sm text-gray-700 dark:text-gray-300">{{ $category->name }}</span>
+      </label>
+    @endforeach
+  </div>
+  @error('product_categories_id')
+    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+  @enderror
+</div>
                     
                     <div class="mb-4">
                         <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Harga</label>

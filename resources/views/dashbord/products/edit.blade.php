@@ -15,7 +15,7 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('products.update', $product->id) }}" method="POST">
+                <form action="{{ route('products.update', $product->id) }}" method="POST" enctype=multipart/form-data>
                     @csrf
                     @method('PUT') <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Produk</label>
@@ -30,7 +30,6 @@
                         <label for="product_categories_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori</label>
                         <select name="product_categories_id" id="product_categories_id" required
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <option value="">Pilih Kategori</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" {{ (old('product_categories_id', $product->product_categories_id) == $category->id) ? 'selected' : '' }}>
                                     {{ $category->name }}
