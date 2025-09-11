@@ -25,8 +25,8 @@
                     @foreach ($produk as $item)
                     <tr class="border-t">
                         <td class="px-4 py-2">{{ $item->name }}</td>
-                        {{-- <td class="px-4 py-2">{{ $item->product_category->name }}</td> --}}
-                        <td class="px-4 py-2">{{ $item->price }}</td>
+                        <td class="px-4 py-2">{{ $item->category->name }}</td>
+                         <td class="px-4 py-2">Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                         <td class="px-4 py-2">{{ $item->stock }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="#" class="text-blue-600 hover:underline">Edit</a>
