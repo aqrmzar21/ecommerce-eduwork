@@ -10,7 +10,7 @@
       <div class="hidden md:flex space-x-6">
         <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
         <a href="/daftar-produk" class="text-gray-700 hover:text-blue-600 font-medium">Daftar Produk</a>
-        <a href="/keranjang" class="text-gray-700 hover:text-blue-600 font-medium">Keranjang</a>
+        <a href="/cart" class="text-gray-700 hover:text-blue-600 font-medium">Keranjang</a>
       </div>
 
       <!-- Mobile Menu Button -->

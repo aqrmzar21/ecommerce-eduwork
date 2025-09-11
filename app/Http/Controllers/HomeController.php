@@ -9,7 +9,8 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return view('home');
+        $produk = [ 'Laptop', 'Handphone', 'Tablet' ];
+        return view('home' , compact('produk'));
     }
 
     public function cart()
