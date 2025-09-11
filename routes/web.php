@@ -19,5 +19,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('/products', function () {
+    return view('products'); 
+})->name('products');
+Route::get('/categories', function () {
+    return view('categories'); 
+})->name('categories');
+
 
 require __DIR__.'/auth.php';
