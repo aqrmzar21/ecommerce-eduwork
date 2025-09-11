@@ -14,7 +14,7 @@
         <h3 class="text-lg font-semibold text-blue-600">Produk A</h3>
         <p class="text-gray-600">Rp 120.000</p>
         <span class="text-sm text-gray-500">Jumlah:
-        <input type="number" class="border border-gray-300 rounded px-2 py-1" value="2">
+        <input type="number" class="border border-gray-300 rounded px-2 py-1" value="2" min="1">
         </span>
       </div>
       <button class="text-red-500 hover:text-red-700">
@@ -32,7 +32,7 @@
         <h3 class="text-lg font-semibold text-blue-600">Produk B</h3>
         <p class="text-gray-600">Rp 85.000</p>
         <span class="text-sm text-gray-500">Jumlah:
-        <input type="number" class="border border-gray-300 rounded px-2 py-1" value="1">
+        <input type="number" class="border border-gray-300 rounded px-2 py-1" value="1" min="1">
         </span>
       </div>
       <button class="text-red-500 hover:text-red-700">

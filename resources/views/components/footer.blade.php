@@ -1,3 +1,3 @@
-<div>
-    <!-- Be present above all else. - Naval Ravikant -->
+<div class="text-gray-600 text-sm">
+    &copy; {{ date('Y') }} Eduwork. All rights reserved.
 </div>
