@@ -3,9 +3,7 @@
     <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
       
       <!-- Brand & Copyright -->
-      <div class="text-gray-600 text-sm">
-        &copy; {{ date('Y') }} Ecommerce. All rights reserved.
-      </div>
+      <x-footer></x-footer>
 
       <!-- Social Icons (optional) -->
       <div class="flex space-x-4">
