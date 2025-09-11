@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductController;
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -20,10 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/products', function () {
-    return view('products'); 
+    return view('dashbord.products.index'); 
 })->name('products');
+// Route::resource('products', ProductController::class);
 Route::get('/categories', function () {
-    return view('categories'); 
+    return view('dashbord.categories.index'); 
 })->name('categories');
 
 
