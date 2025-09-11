@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </head>
 <body>
-{{-- @include('layout.header') --}} 
+@include('layout.header') 
 {{-- // opsi 1 --}}
-<x-navbar></x-navbar> 
+{{-- <x-navbar></x-navbar>  --}}
 {{-- // opsi 2 --}}
 @yield('content')
 @include('layout.footer')
