@@ -9,8 +9,11 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $judul = 'Ecoomerce | Eduwork';
-        
-        return view('home' , compact('judul'));
+        return view('home');
+    }
+
+    public function cart()
+    {
+        return view('page.cart');
     }
 }

@@ -9,13 +9,15 @@ use App\Http\Controllers\ProductController;
 // Route::get('/', function () {
 //     return Inertia::render('welcome');
 // })->name('home');
+// Route::get('/cart', function () {
+//     return "ini adalah route cart";
+// });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/cart', [HomeController::class, 'cart']);
+
 Route::get('/products', function () {
     return "ini adalah route produts";
-});
-Route::get('/cart', function () {
-    return "ini adalah route cart";
 });
 Route::get('/checkout', function () {
     return "ini adalah route checkout";

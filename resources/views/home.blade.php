@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Home')
+@section('title', 'Home | Ecommerce Eduwork')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 py-8">
