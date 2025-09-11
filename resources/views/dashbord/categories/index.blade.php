@@ -22,30 +22,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach ($kategori as $value)
                     <tr class="border-t">
-                        <td class="px-4 py-2">Elektronik</td>
-                        <td class="px-4 py-2">23</td>
+                        <td class="px-4 py-2">{{ $value->name }}</td>
+                        <td class="px-4 py-2">{{ $value->products_count }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="#" class="text-blue-600 hover:underline">Edit</a>
                             <button class="text-red-600 hover:underline" onclick="alert('Hapus kategori ini?')">Hapus</button>
                         </td>
                     </tr>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">Fashion</td>
-                        <td class="px-4 py-2">13</td>
-                        <td class="px-4 py-2 space-x-2">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                            <button class="text-red-600 hover:underline" onclick="alert('Hapus kategori ini?')">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">Makanan</td>
-                        <td class="px-4 py-2">44</td>
-                        <td class="px-4 py-2 space-x-2">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                            <button class="text-red-600 hover:underline" onclick="alert('Hapus kategori ini?')">Hapus</button>
-                        </td>
-                    </tr>
+                  @endforeach
                 </tbody>
               </table>
               
