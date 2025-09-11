@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 // use Inertia\Inertia;
 use App\Http\Controllers\Contoh;
 use App\Http\Controllers\ProductController;
@@ -9,9 +10,7 @@ use App\Http\Controllers\ProductController;
 //     return Inertia::render('welcome');
 // })->name('home');
 
-Route::get('/', function () {
-    return "ini adalah route web";
-});
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/products', function () {
     return "ini adalah route produts";
 });
