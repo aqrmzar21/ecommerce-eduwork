@@ -1,4 +1,3 @@
-@section('title', 'Ecommerce | Produk')
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -8,7 +7,6 @@
           </a>
         </h2>
     </x-slot>
-
     <div class="py-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
@@ -24,26 +22,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($produk as $item)
                     <tr class="border-t">
-                        <td class="px-4 py-2">Laptop</td>
-                        <td class="px-4 py-2">Elektronik</td>
-                        <td class="px-4 py-2">Rp 5.000.000</td>
-                        <td class="px-4 py-2">10</td>
+                        <td class="px-4 py-2">{{ $item->name }}</td>
+                        {{-- <td class="px-4 py-2">{{ $item->product_category->name }}</td> --}}
+                        <td class="px-4 py-2">{{ $item->price }}</td>
+                        <td class="px-4 py-2">{{ $item->stock }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="#" class="text-blue-600 hover:underline">Edit</a>
                             <button class="text-red-600 hover:underline" onclick="alert('Hapus produk ini?')">Hapus</button>
                         </td>
                     </tr>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">Handphone</td>
-                        <td class="px-4 py-2">Elektronik</td>
-                        <td class="px-4 py-2">Rp 3.000.000</td>
-                        <td class="px-4 py-2">5</td>
-                        <td class="px-4 py-2 space-x-2">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                            <button class="text-red-600 hover:underline" onclick="alert('Hapus produk ini?')">Hapus</button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
 
               </table>

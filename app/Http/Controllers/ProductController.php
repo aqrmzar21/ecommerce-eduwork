@@ -12,11 +12,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $products = Product::with('categories')->get();
-        $products = Product::all();
-        // return view('products.index', compact('products'));
-        dd($products);
-        return view('dashbord.products.index' , compact('products'));
+        // $produk = Product::with('category()')->get();
+        $produk = Product::all();
+        // $produk = Product::paginate(3);
+        return view('dashbord.products.index' , compact('produk'));
         //
     }
 
