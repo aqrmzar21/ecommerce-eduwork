@@ -14,7 +14,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     <!-- Produk 1 -->
     <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
-      <img src="#" alt="Produk A" class="w-full h-48 object-cover">
+      <img src="https://th.bing.com/th/id/OIP.g-IXaRH2deMRDkasq9BDFQHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Produk A" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-bold text-blue-600 mb-1">Produk A</h3>
         <p class="text-gray-600 mb-3">Rp 120.000</p>
@@ -30,7 +30,7 @@
 
     <!-- Produk 2 -->
     <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
-      <img src="#" alt="Produk B" class="w-full h-48 object-cover">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.6RoXBbPCv27HpPh1o4OUfQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Produk B" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-bold text-blue-600 mb-1">Produk B</h3>
         <p class="text-gray-600 mb-3">Rp 85.000</p>
@@ -46,7 +46,7 @@
 
     <!-- Produk 3 -->
     <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
-      <img src="#" alt="Produk C" class="w-full h-48 object-cover">
+      <img src="https://www.bhphotovideo.com/images/images2500x2500/logitech_981_000906_g_pro_x_wireless_1578916.jpg" alt="Produk C" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-bold text-blue-600 mb-1">Produk C</h3>
         <p class="text-gray-600 mb-3">Rp 150.000</p>
