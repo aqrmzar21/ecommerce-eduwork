@@ -13,7 +13,7 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     <!-- Produk 1 -->
-    <div class="border rounded-lg overflow-hidden shadow hover:shadow-md transition">
+    <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
       <img src="#" alt="Produk A" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-bold text-blue-600 mb-1">Produk A</h3>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Produk 2 -->
-    <div class="border rounded-lg overflow-hidden shadow hover:shadow-md transition">
+    <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
       <img src="#" alt="Produk B" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-bold text-blue-600 mb-1">Produk B</h3>
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Produk 3 -->
-    <div class="border rounded-lg overflow-hidden shadow hover:shadow-md transition">
+    <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
       <img src="#" alt="Produk C" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-bold text-blue-600 mb-1">Produk C</h3>

@@ -8,13 +8,13 @@
     <div class="space-y-6">
     
     <!-- Item 1 -->
-    <div class="flex items-center border rounded-lg p-4 shadow-sm hover:shadow-md transition">
+    <div class="flex items-center rounded-lg p-4 shadow-sm hover:shadow-md transition">
       <img src="https://via.placeholder.com/100x100?text=Produk+A" alt="Produk A" class="w-24 h-24 object-cover rounded">
       <div class="ml-4 flex-1">
         <h3 class="text-lg font-semibold text-blue-600">Produk A</h3>
         <p class="text-gray-600">Rp 120.000</p>
         <span class="text-sm text-gray-500">Jumlah:
-        <input type="number" class="border border-gray-300 rounded px-2 py-1" value="2" min="1">
+        <input type="number" class="border-gray-300 rounded px-2 py-1" value="2" min="1">
         </span>
       </div>
       <button class="text-red-500 hover:text-red-700">
@@ -26,13 +26,13 @@
     </div>
 
     <!-- Item 2 -->
-    <div class="flex items-center border rounded-lg p-4 shadow-sm hover:shadow-md transition">
+    <div class="flex items-center rounded-lg p-4 shadow-sm hover:shadow-md transition">
       <img src="https://via.placeholder.com/100x100?text=Produk+B" alt="Produk B" class="w-24 h-24 object-cover rounded">
       <div class="ml-4 flex-1">
         <h3 class="text-lg font-semibold text-blue-600">Produk B</h3>
         <p class="text-gray-600">Rp 85.000</p>
         <span class="text-sm text-gray-500">Jumlah:
-        <input type="number" class="border border-gray-300 rounded px-2 py-1" value="1" min="1">
+        <input type="number" class="border-gray-300 rounded px-2 py-1" value="1" min="1">
         </span>
       </div>
       <button class="text-red-500 hover:text-red-700">
