@@ -24,31 +24,36 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        // Ammbil semua kategori untuk dropdown
+        $categories = ProductCategories::all();
+        return view('dashbord.categories.create' , compact('categories'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
-     */
+    */
     public function store(Request $request)
     {
         //)
     }
-
+    
     /**
      * Display the specified resource.
-     */
+    */
     public function show(string $id)
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    */
+    public function edit(ProductCategories $product_categories)
     {
-        //
+        // Ammbil semua kategori untuk dropdown
+        $categories = ProductCategories::all();
+        return view('dashbord.categories.edit', compact('categories', 'product_categories'));
+
     }
 
     /**

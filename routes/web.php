@@ -25,13 +25,17 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 // Route::resource('products', ProductController::class);
-Route::get('/products/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::post('/products', [ProductController::class, 'update'])->name('products.update');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
 // Route::get('/categories', function () {
 //     return view('dashbord.categories.index'); 
 // })->name('categories');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [ CategoryController::class, 'store'])->name('categories.store');
+Route::get('/categories/{product_categories}/edit', [ CategoryController::class, 'edit'])->name('categories.edit');
+Route::put('/categories/{product_categories}', [ CategoryController::class, 'update'])->name('categories.update');
 
 
 require __DIR__.'/auth.php';
