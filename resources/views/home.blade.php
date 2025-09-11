@@ -13,36 +13,16 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     <!-- Produk 1 -->
-    <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
-      <img src="https://th.bing.com/th/id/OIP.g-IXaRH2deMRDkasq9BDFQHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Produk A" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-bold text-blue-600 mb-1">Produk A</h3>
-        <p class="text-gray-600 mb-3">Rp 120.000</p>
-        <button class="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11l-1.5-7M7 13h10M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-          </svg>
-          Tambah ke Keranjang
-        </button>
+    @foreach ($products as $item)
+      <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
+        <h3 class="text-lg font-bold text-blue-600">{{ $item->name }}</h3>
+        <p class="text-gray-600 mb-2">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
+        <a href="/checkout" class="text-sm bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+          Beli
+        </a>
       </div>
-    </div>
+    @endforeach
 
-    <!-- Produk 2 -->
-    <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
-      <img src="https://tse1.mm.bing.net/th/id/OIP.6RoXBbPCv27HpPh1o4OUfQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Produk B" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-bold text-blue-600 mb-1">Produk B</h3>
-        <p class="text-gray-600 mb-3">Rp 85.000</p>
-        <button class="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11l-1.5-7M7 13h10M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-          </svg>
-          Tambah ke Keranjang
-        </button>
-      </div>
-    </div>
 
     <!-- Produk 3 -->
     <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
@@ -61,6 +41,10 @@
     </div>
 
   </div>
+
+<div class="max-w mt-2 py-4">
+{{ $products->links() }}
+</div>
 </div>
 
 

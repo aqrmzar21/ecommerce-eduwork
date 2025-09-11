@@ -23,9 +23,6 @@ Route::get('/checkout', function () {
     return "ini adalah route checkout";
 });
 
-// perccobaan aksese dari controller
-// Route::get('/contoh', [Contoh::class, 'index']);
-Route::get('/contoh', [Contoh::class, 'coba']);
 
 // langsung pakai resource karena sudah ada controller dari perintah -r
 Route::resource('products', ProductController::class);
