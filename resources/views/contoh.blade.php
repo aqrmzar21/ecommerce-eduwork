@@ -7,5 +7,4 @@
     <li>{{ $item }}</li>
     @endforeach
   </ul>
-  
 @endsection

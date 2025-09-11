@@ -1,0 +1,1 @@
+<header> <h1 class="mx-auto font-bold">Header</h1> <hr></header>
