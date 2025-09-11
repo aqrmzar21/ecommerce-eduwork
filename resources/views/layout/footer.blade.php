@@ -1,1 +1,1 @@
-<footer>Coppyright &copy; {{ date('Y') }} All rights reserved.</footer>
+<hr><footer>Coppyright &copy; {{ date('Y') }} All rights reserved.</hr>
