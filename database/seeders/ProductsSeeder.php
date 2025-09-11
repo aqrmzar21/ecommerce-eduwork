@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
-class Products extends Seeder
+class ProductsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,6 +21,7 @@ class Products extends Seeder
                 'image' => '1.jpg',
                 'price' => 5000000,
                 'stock' => 10,
+                'product_category_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -30,6 +31,7 @@ class Products extends Seeder
                 'image' => '2.jpg',
                 'price' => 3000000,
                 'stock' => 5,
+                'product_category_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],            
@@ -39,6 +41,7 @@ class Products extends Seeder
                 'image' => '3.jpg',
                 'price' => 2000000,
                 'stock' => 5,
+                'product_category_id' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
