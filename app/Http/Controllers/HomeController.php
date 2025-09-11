@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         // $produk = [ 'Laptop', 'Handphone', 'Tablet' ];
         // $products = Product::all();
-        $products = Product::paginate(5);
+        $products = Product::paginate(3);
         return view('home' , compact('products'));
     }
 
