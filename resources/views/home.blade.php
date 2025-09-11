@@ -22,7 +22,33 @@
       </div>
     @endforeach --}}
 
-    
+    <!-- Produk 1 -->
+    <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
+      <h3 class="text-lg font-bold text-blue-600">Produk A</h3>
+      <p class="text-gray-600 mb-2">Rp 120.000</p>
+      <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+        Tambah ke Keranjang
+      </button>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
+      <h3 class="text-lg font-bold text-blue-600">Produk B</h3>
+      <p class="text-gray-600 mb-2">Rp 85.000</p>
+      <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+        Tambah ke Keranjang
+      </button>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
+      <h3 class="text-lg font-bold text-blue-600">Produk C</h3>
+      <p class="text-gray-600 mb-2">Rp 150.000</p>
+      <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+        Tambah ke Keranjang
+      </button>
+    </div>
+
   </div>
 </div>
 
