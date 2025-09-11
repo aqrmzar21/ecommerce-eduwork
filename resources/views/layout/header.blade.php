@@ -12,14 +12,14 @@
         <a href="/daftar-produk" class="text-gray-700 hover:text-blue-600 font-medium">Daftar Produk</a>
         <a href="/cart" class="text-gray-700 hover:text-blue-600 font-medium">Keranjang</a>
         
-        //pengecekaan login
+        {{-- // pengecekaan login --}}
         @if(Route::has('login'))
         @auth
-        <a href="{{ url('/dashboard') }}" class="text-gray-700 hover:text-blue-600 font-medium">Dashboard</a>
+        <a href="{{ url('/dashboard') }}" class="text-black-700 hover:text-blue-600 font-medium">Dashboard</a>
         @else 
-        <a href="{{ route('login') }}" class="text-gray-700 hover:text-blue-600 font-medium">Masuk</a> 
+        <a href="{{ route('login') }}" class="hover:text-black-700 text-blue-600 font-medium">Masuk</a> 
         @if (Route::has('register'))
-        <a href="{{ route('register') }}" class="text-gray-700 hover:text-blue-600 font-medium">Daftar</a>
+        <a href="{{ route('register') }}" class="hover:text-bold text-blue-600 font-medium">Daftar</a>
         
         @endif
         @endauth
