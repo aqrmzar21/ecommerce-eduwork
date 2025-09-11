@@ -70,12 +70,11 @@
                     </div>
                     
                     <div class="mb-4">
-                        <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL Gambar</label>
-                        <input type="url" name="image" id="image" value="{{ old('image', $product->image) }}" 
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        @error('image')
-                            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
-                        @enderror
+                      <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Gambar Produk</label>
+                      <input type="file" name="image" id="image" required class="mt-1 block w-full text-sm text-gray-700 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      @error('image')
+                        <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                      @enderror
                     </div>
 
                     <div class="flex items-center justify-end">
