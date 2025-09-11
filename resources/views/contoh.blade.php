@@ -5,8 +5,12 @@
     {{-- Coba kompoenen alert --}}
   <x-alert>
     {{-- Coba kondisional if-else --}}
-    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
-      <span class="font-medium">Berhasil!</span> Data telah disimpan.
+    <div class="p-4 mb-4 text-sm text-gray-800 rounded-lg bg-green-50" role="alert">
+      @if($ifLogin)
+      <span class="font-medium text-green-500">Berhasil!</span> Data telah disimpan.
+      @else
+      <span class="font-medium text-red-500">Gagal!</span> menyimpan data.
+      @endif
     </div>
   </x-alert>
 
