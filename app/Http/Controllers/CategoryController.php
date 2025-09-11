@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\ProductCategories;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // $produk = Product::with('category()')->get();
-        // $produk = Product::paginate(3);
-        // $produk = Product::all();
-        // return view('dashbord.products.index' , compact('produk'));
-        $produk = Product::with('category')->paginate(3);
-        return view('dashbord.products.index', compact('produk'));
-        //
+    // $categories = ProductCategories::paginate(10); // atau ->get() jika tidak pakai pagination
+    // $kategori = ProductCategories::all(); // atau ->get() jika tidak pakai pagination
+    $kategori = ProductCategories::withCount('products')->get();
+
+    return view('dashbord.categories.index', compact('kategori'));
     }
 
     /**
@@ -34,13 +32,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //)
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(string $id)
     {
         //
     }
@@ -48,7 +46,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(string $id)
     {
         //
     }
@@ -56,7 +54,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -64,7 +62,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(string $id)
     {
         //
     }

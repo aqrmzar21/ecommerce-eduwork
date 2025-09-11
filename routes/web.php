@@ -1,28 +1,34 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-// use Inertia\Inertia;
-use App\Http\Controllers\Contoh;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Route;
+
 
 // Route::get('/', function () {
-//     return Inertia::render('welcome');
-// })->name('home');
-// Route::get('/cart', function () {
-//     return "ini adalah route cart";
+//     return view('welcome');
 // });
-
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/cart', [HomeController::class, 'cart']);
 
-Route::get('/products', function () {
-    return "ini adalah route produts";
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/checkout', function () {
-    return "ini adalah route checkout";
-});
 
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+// Route::resource('products', ProductController::class);
 
-// langsung pakai resource karena sudah ada controller dari perintah -r
-Route::resource('products', ProductController::class);
+// Route::get('/categories', function () {
+//     return view('dashbord.categories.index'); 
+// })->name('categories');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+require __DIR__.'/auth.php';

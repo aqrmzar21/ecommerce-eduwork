@@ -8,9 +8,26 @@
 
       <!-- Navigation Links -->
       <div class="hidden md:flex space-x-6">
+        
+        {{-- // pengecekaan login --}}
+        @if(Route::has('login'))
+        @auth
+        <a href="{{ url('/dashboard') }}" class="text-black-700 hover:text-blue-600 font-medium">Dashboard</a>
+        @else 
         <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
         <a href="/daftar-produk" class="text-gray-700 hover:text-blue-600 font-medium">Daftar Produk</a>
         <a href="/cart" class="text-gray-700 hover:text-blue-600 font-medium">Keranjang</a>
+        <a href="{{ route('login') }}" class="hover:text-black-700 text-blue-600 font-medium">Masuk</a> 
+        @if (Route::has('register'))
+        <a href="{{ route('register') }}" class="hover:text-bold text-blue-600 font-medium">Daftar</a>
+        
+        @endif
+        @endauth
+        @endif
+        
+        @if (Auth::check())
+          <a href="/logout" class="text-gray-700 hover:text-blue-600 font-medium">Logout</a>
+        @endif
       </div>
 
       <!-- Mobile Menu Button -->
