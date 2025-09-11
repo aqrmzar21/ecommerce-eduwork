@@ -12,10 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    // $categories = ProductCategories::paginate(10); // atau ->get() jika tidak pakai pagination
-    // $kategori = ProductCategories::all(); // atau ->get() jika tidak pakai pagination
     $kategori = ProductCategories::withCount('products')->get();
-
     return view('dashbord.categories.index', compact('kategori'));
     }
 

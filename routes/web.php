@@ -21,16 +21,13 @@ Route::middleware('auth')->group(function () {
 
 // Route untuk produk
 Route::get('/products', [ProductController::class, 'index'])->name('products');
-// Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 // Route::resource('products', ProductController::class);
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
-// Route::get('/categories', function () {
-//     return view('dashbord.categories.index'); 
-// })->name('categories');
+// Route untuk kategori
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/categories', [ CategoryController::class, 'store'])->name('categories.store');

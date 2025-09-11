@@ -13,10 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $produk = Product::with('category()')->get();
+        // $produk = Product::with('category')->get();
         // $produk = Product::paginate(3);
         // $produk = Product::all();
-        // return view('dashbord.products.index' , compact('produk'));
         $produk = Product::with('category')->paginate(3);
         return view('dashbord.products.index', compact('produk'));
         //
