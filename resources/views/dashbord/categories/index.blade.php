@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
-            <a href="#" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 float-right text-sm">
+            <a href="{{ route('categories.create') }}" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 float-right text-sm">
               + Tambah Data
           </a>
         </h2>
@@ -27,7 +27,7 @@
                         <td class="px-4 py-2">{{ $value->name }}</td>
                         <td class="px-4 py-2">{{ $value->products_count }}</td>
                         <td class="px-4 py-2 space-x-2">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                            <a href="{{ route('categories.edit', $value->id) }}" class="text-blue-600 hover:underline">Edit</a>
                             <button class="text-red-600 hover:underline" onclick="alert('Hapus kategori ini?')">Hapus</button>
                         </td>
                     </tr>

@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Daftar Produk') }}
-          <a href="#" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 float-right text-sm">
+          <a href="{{ route('products.create') }}" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 float-right text-sm">
               + Tambah Data
           </a>
         </h2>
@@ -29,7 +29,7 @@
                          <td class="px-4 py-2">Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                         <td class="px-4 py-2">{{ $item->stock }}</td>
                         <td class="px-4 py-2 space-x-2">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                            <a href="{{ route('products.edit', $item->id) }}" class="text-blue-600 hover:underline">Edit</a>
                             <button class="text-red-600 hover:underline" onclick="alert('Hapus produk ini?')">Hapus</button>
                         </td>
                     </tr>

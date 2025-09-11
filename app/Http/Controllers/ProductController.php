@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategories;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -27,6 +28,9 @@ class ProductController extends Controller
     public function create()
     {
         //
+        // Ambil semua kategori untuk dropdown
+        $categories = ProductCategories::all();
+        return view('dashbord.products.create' , compact('categories'));
     }
 
     /**
@@ -50,7 +54,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = ProductCategories::all();
+        return view('dashbord.products.edit ', compact('product', 'categories'));
     }
 
     /**
