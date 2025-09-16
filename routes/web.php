@@ -34,5 +34,15 @@ Route::post('/categories', [ CategoryController::class, 'store'])->name('categor
 Route::get('/categories/{product_categories}/edit', [ CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{product_categories}', [ CategoryController::class, 'update'])->name('categories.update');
 
-
+// Route untuk admin
+Route::middleware(['admin'])->group(function () {
+    Route::get('/product/create', function () {
+        return view('products.create');
+    })->name('products/create');
+});
+// Route::middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/admin', function () {
+//         return view('admin.dashboard');
+//     })->name('admin.dashboard');
+// });
 require __DIR__.'/auth.php';
