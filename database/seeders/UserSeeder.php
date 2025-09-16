@@ -21,5 +21,11 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'), // gunakan bcrypt untuk meng-hash password
             'role' => 'admin', // set role sebagai 'admin'
         ]);
+        User::create([
+            'name' => 'Seller',
+            'email' => 'sell@gg.mu',
+            'password' => Hash::make('password'), // gunakan bcrypt untuk meng-hash password
+            'role' => 'user', 
+        ]);
     }
 }

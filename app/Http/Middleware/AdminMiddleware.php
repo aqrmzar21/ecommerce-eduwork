@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\User;
 
 class AdminMiddleware
 {
