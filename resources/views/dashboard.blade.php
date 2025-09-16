@@ -17,7 +17,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                             <h2 class="text-lg font-semibold text-gray-700">Jumlah Produk</h2>
-                            <p class="text-3xl font-bold text-indigo-600 mt-2">128</p>
+                            <p class="text-3xl font-bold text-indigo-600 mt-2">{{ $jumlahProduk }}</p>
                             </div>
                             <div class="text-indigo-500">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
@@ -49,7 +49,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                             <h2 class="text-lg font-semibold text-gray-700">Kategori Produk</h2>
-                            <p class="text-3xl font-bold text-red-600 mt-2">12</p>
+                            <p class="text-3xl font-bold text-red-600 mt-2">{{ $jumlahKategori }}</p>
                             </div>
                             <div class="text-yellow-500">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
