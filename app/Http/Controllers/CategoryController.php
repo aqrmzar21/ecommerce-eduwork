@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    $kategori = ProductCategories::withCount('products')->get();
+    $kategori = ProductCategories::withCount('products')->paginate(3);
     return view('dashbord.categories.index', compact('kategori'));
     }
 

@@ -23,7 +23,7 @@
                     </x-nav-link>
                     @if (auth()->user()->role === 'admin')
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
-                        {{ __('Users') }}
+                        {{ __('Pengguna') }}
                     </x-nav-link>
                     @endif
                 </div>

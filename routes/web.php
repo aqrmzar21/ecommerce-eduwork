@@ -38,6 +38,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/product', function () {
         return view('products');
     })->name('products');
+    Route::get('/user', function () {
+        return view('users.index');
+    })->name('users.index');
 });
 // Route::middleware(['auth', 'admin'])->group(function () {
 //     Route::get('/admin', function () {

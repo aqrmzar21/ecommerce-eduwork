@@ -29,6 +29,7 @@
                 @foreach ($kategori as $value)
                     <tr class="border-t">
                         <td class="px-4 py-2">{{ $value->name }}</td>
+                        {{-- <td class="px-4 py-2">{{ $value->products->count() }}</td> --}}
                         <td class="px-4 py-2">{{ $value->products_count }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="{{ route('categories.edit', $value->id) }}" class="text-blue-600 hover:underline">Edit</a>
@@ -40,6 +41,11 @@
               </table>
               
             </div>
+            {{ $kategori->links() }}
+            {{-- tampilkan pagination --}}
+            @if ($kategori->isEmpty())
+                <p class="text-center text-gray-500 mt-4">Tidak ada data kategori.</p>
+            @endif
         </div>
     </div>
 </x-app-layout>
