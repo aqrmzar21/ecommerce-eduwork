@@ -1,11 +1,15 @@
+@section('title', 'Daftar Kategori');
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot name="header" >
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-            <a href="{{ route('categories.create') }}" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 float-right text-sm">
-              + Tambah Data
-          </a>
+            {{ __('Daftar Kategori') }}
         </h2>
+        {{--  jika bukan admin maka jangan tampilkan tombol  --}}
+        @if (auth()->user()->role === 'admin')
+        <a href="{{ route('categories.create') }}" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 justify-self-end text-sm">
+            + Tambah Data
+        </a>
+        @endif
     </x-slot>
 
     <div class="py-8">
@@ -17,7 +21,7 @@
                 <thead class="bg-gray-900">
                     <tr>
                         <th class="px-4 py-2 text-left">Nama Kategori</th>
-                        <th class="px-4 py-2 text-left">Junlah</th>
+                        <th class="px-4 py-2 text-left">Jumlah</th>
                         <th class="px-4 py-2 text-left">Aksi</th>
                     </tr>
                 </thead>

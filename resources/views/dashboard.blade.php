@@ -1,3 +1,4 @@
+@section('title', 'Halaman Utama');
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -33,6 +34,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                             <h2 class="text-lg font-semibold text-gray-700">Jumlah Pengunjung</h2>
+                            {{-- <p class="text-3xl font-bold text-green-600 mt-2">{{ $jumlahPengunjung }}</p> --}}
                             <p class="text-3xl font-bold text-green-600 mt-2">2,345</p>
                             </div>
                             <div class="text-green-500">

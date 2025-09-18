@@ -35,9 +35,9 @@ Route::put('/categories/{product_categories}', [ CategoryController::class, 'upd
 
 // Route untuk admin
 Route::middleware(['admin'])->group(function () {
-    Route::get('/product/create', function () {
-        return view('products.create');
-    })->name('products/create');
+    Route::get('/product', function () {
+        return view('products');
+    })->name('products');
 });
 // Route::middleware(['auth', 'admin'])->group(function () {
 //     Route::get('/admin', function () {
