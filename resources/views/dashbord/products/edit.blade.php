@@ -68,14 +68,62 @@
                         @enderror
                     </div>
                     
-                    <div class="mb-4">
-                      <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Gambar Produk</label>
-                      <input type="file" name="image" id="image" required class="mt-1 block w-full text-sm text-gray-700 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                      @error('image')
-                        <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
-                      @enderror
+                    <div class="mb-6">
+                        <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Upload Gambar Produk</label>
+
+                        <div class="flex items-center space-x-4">
+                            <!-- Tombol custom upload -->
+                            <label for="image" class="cursor-pointer inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 text-sm">
+                                Pilih File
+                            </label>
+
+                            <!-- Nama file yang dipilih -->
+                            <span id="file-name-display" class="text-sm text-gray-600 dark:text-gray-300">Belum ada file yang dipilih</span>
+                        </div>
+
+                        <!-- Input file tersembunyi -->
+                        <input type="file" id="image" name="image" class="hidden" onchange="previewImage(this)">
+
+                        <!-- Preview gambar -->
+                        <div class="mt-4">
+                            <img id="image-preview" src="{{ $product->image ? asset('storage/products/' . $product->image) : '' }}" alt="Preview Gambar" class="w-40 h-40 object-cover rounded-md border border-gray-300 dark:border-gray-600">
+                        </div>
+
+                        <!-- Hidden input untuk gambar lama (optional, jika edit) -->
+                        <input type="hidden" name="gambar_lama" value="{{ old('gambar_lama') }}">
+                        
+                        @error('image')
+                            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
+                    <script>
+                        function previewImage(input) {
+                            const file = input.files[0];
+                            const fileNameDisplay = document.getElementById('file-name-display');
+                            const imagePreview = document.getElementById('image-preview');
+                            const gambarLamaInput = document.querySelector('input[name="gambar_lama"]');
+
+                            if (file) {
+                                fileNameDisplay.textContent = file.name;
+                                const reader = new FileReader();
+                                reader.onload = function (e) {
+                                    imagePreview.src = e.target.result;
+                                    gambarLamaInput.value = ''; // Kosongkan gambar lama
+                                };
+                                reader.readAsDataURL(file);
+                            } else {
+                                fileNameDisplay.textContent = 'Belum ada file yang dipilih';
+                                // Kembalikan ke gambar lama jika ada
+                                const oldImage = gambarLamaInput.value;
+                                if (oldImage) {
+                                    imagePreview.src = `/storage/products/${oldImage}`;
+                                } else {
+                                    imagePreview.src = '';
+                                }
+                            }
+                        }
+                    </script>
                     <div class="flex items-center justify-end">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                             Simpan Perubahan

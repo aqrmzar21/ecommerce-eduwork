@@ -1,4 +1,4 @@
-@section('title', 'Daftar Kategori');
+@section('title', 'Daftar Kategori')
 <x-app-layout>
     <x-slot name="header" >
         <div class="flex items-center justify-between">
