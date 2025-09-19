@@ -32,7 +32,7 @@
                             @foreach ($categories as $category)
                                 <label class="inline-flex items-center space-x-2">
                                     <input type="radio" name="product_categories_id" value="{{ $category->id }}" {{ old('product_categories_id') == $category->id ? 'checked' : '' }} class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 mr-1">
-                                    <span class="text-sm text-gray-700 dark:text-gray-300">{{ $category->name }}</span>
+                                    <span class="text-sm text-gray-700 dark:text-gray-300 p-1">{{ $category->name }}</span>
                                 </label>
                             @endforeach
                         </div>
