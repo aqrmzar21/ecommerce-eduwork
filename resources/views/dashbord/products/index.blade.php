@@ -14,7 +14,11 @@
 
     <div class="py-8">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
+        @if (session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="overflow-x-auto bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
             <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700 text-white">
                     

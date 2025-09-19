@@ -55,7 +55,35 @@ class ProductController extends Controller
         // Product::create($validated);
         // // Redirect ke halaman produk dengan pesan sukses
         // return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
-        
+
+        // Versi 2
+        // $validated = $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'description' => ['nullable', 'string'],
+        //     'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+        //     'price' => ['required', 'numeric'],
+        //     'stock' => ['required', 'integer', 'min:0'],
+        //     'product_categories_id' => ['required', 'exists:product_categories,id'],
+        // ]);
+        // $category = ProductCategories::find($request->input('product_categories_id'));
+        // $product = new Product($validated);
+        // $product->name = $request->input('name');
+        // $product->description = $request->input('description');
+        // $product->image = $request->input('image');
+        // $product->price = $request->input('price');
+        // $product->stock = $request->input('stock');
+        // $product->product_categories_id = $category->id;
+        // // Simpan produk melalui relasi kategori
+        // // Handle file upload jika ada
+        // if ($request->hasFile('image')) {
+        //     // $product->image = $request->file('image')->store('products');
+        //     $product->image = $request->file('image')->store('products', 'public');
+
+        // }
+        // $category->products()->save($product);
+        // return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
+
+        // Versi 3
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
@@ -64,22 +92,15 @@ class ProductController extends Controller
             'stock' => ['required', 'integer', 'min:0'],
             'product_categories_id' => ['required', 'exists:product_categories,id'],
         ]);
-        $category = ProductCategories::find($request->input('product_categories_id'));
-        $product = new Product($validated);
-        $product->name = $request->input('name');
-        $product->description = $request->input('description');
-        $product->image = $request->input('image');
-        $product->price = $request->input('price');
-        $product->stock = $request->input('stock');
-        $product->product_categories_id = $category->id;
-        // Simpan produk melalui relasi kategori
-        // Handle file upload jika ada
+
+        // Handle file upload
         if ($request->hasFile('image')) {
-            // $product->image = $request->file('image')->store('products');
-            $product->image = $request->file('image')->store('products', 'public');
-           
+            $validated['image'] = $request->file('image')->store('products', 'public');
         }
-        $category->products()->save($product);
+
+        // Simpan produk ke database
+        Product::create($validated);
+
         return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
     }
     
