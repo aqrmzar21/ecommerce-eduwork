@@ -17,7 +17,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-              <table class="min-w-full bg-dark text-white border border-gray-800 rounded shadow-sm">
+              <table class="table-auto bg-dark text-white border border-gray-800 rounded shadow-sm">
                 <thead class="bg-gray-900">
                     <tr>
                         <th class="px-4 py-2 text-left">Nama Kategori</th>

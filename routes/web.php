@@ -27,11 +27,8 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
 // Route untuk kategori
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('/categories', [ CategoryController::class, 'store'])->name('categories.store');
-Route::get('/categories/{product_categories}/edit', [ CategoryController::class, 'edit'])->name('categories.edit');
-Route::put('/categories/{product_categories}', [ CategoryController::class, 'update'])->name('categories.update');
+// Roter mengguakan resource
+Route::resource('categories', CategoryController::class);
 
 // Route untuk admin
 Route::middleware(['admin'])->group(function () {
@@ -42,9 +39,7 @@ Route::middleware(['admin'])->group(function () {
         return view('users.index');
     })->name('users.index');
 });
-// Route::middleware(['auth', 'admin'])->group(function () {
-//     Route::get('/admin', function () {
-//         return view('admin.dashboard');
-//     })->name('admin.dashboard');
-// });
+
+
+
 require __DIR__.'/auth.php';

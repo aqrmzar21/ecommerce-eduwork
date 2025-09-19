@@ -12,8 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    $kategori = ProductCategories::withCount('products')->paginate(3);
-    return view('dashbord.categories.index', compact('kategori'));
+        $kategori = ProductCategories::withCount('products')->paginate(3);
+        return view('dashbord.categories.index', compact('kategori'));
     }
 
     /**
@@ -22,35 +22,52 @@ class CategoryController extends Controller
     public function create()
     {
         // Ammbil semua kategori untuk dropdown
-        $categories = ProductCategories::all();
-        return view('dashbord.categories.create' , compact('categories'));
+        return view('dashbord.categories.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
-    */
+     */
     public function store(Request $request)
     {
-        //)
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        // cek inputan
+        $name_check = ProductCategories::where('name', $request->name)->exists();
+        // Jika nama sudah ada, kembalikan dengan pesan error
+        if ($name_check) {
+            return redirect()->back()->withErrors(['name' => 'Kategori dengan nama tersebut sudah ada.'])->withInput();
+        }
+
+        // Buat kategori baru 
+        ProductCategories::create([
+            'name' => $request->name,
+            // 'description' => $request->description,
+        ]);
+        // Redirect ke halaman kategori dengan pesan sukses
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil disimpan.');
     }
-    
+
     /**
      * Display the specified resource.
-    */
+     */
     public function show(string $id)
     {
         //
     }
-    
+
     /**
      * Show the form for editing the specified resource.
-    */
+     */
     public function edit(ProductCategories $product_categories)
     {
         // Ammbil semua kategori untuk dropdown
         $categories = ProductCategories::all();
         return view('dashbord.categories.edit', compact('categories', 'product_categories'));
-
     }
 
     /**

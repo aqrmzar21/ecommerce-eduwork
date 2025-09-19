@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
                         {{ __('Produk') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
                         {{ __('Kategori') }}
                     </x-nav-link>
                     @if (auth()->user()->role === 'admin')
