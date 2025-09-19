@@ -39,17 +39,29 @@ class CategoryController extends Controller
         // cek inputan
         $name_check = ProductCategories::where('name', $request->name)->exists();
         // Jika nama sudah ada, kembalikan dengan pesan error
+        // if ($name_check) {
+        //     return redirect()->back()->withErrors(['name' => 'Kategori dengan nama tersebut sudah ada.'])->withInput();
+        // }
+        // // Buat kategori baru 
+        // ProductCategories::create([
+        //     'name' => $request->name,
+        //     // 'description' => $request->description,
+        // ]);
+        // // Redirect ke halaman kategori dengan pesan sukses
+        // return redirect()->route('categories.index')->with('success', 'Kategori berhasil disimpan.');
+
         if ($name_check) {
             return redirect()->back()->withErrors(['name' => 'Kategori dengan nama tersebut sudah ada.'])->withInput();
+        } else {
+            // Buat kategori baru 
+            $category = new ProductCategories;
+            $category->name = $request->name;
+            $category->save();
+            return redirect()
+                ->route('categories.index')
+                ->with('success', 'Kategori berhasil disimpan.');
+            // Redirect ke halaman kategori dengan pesan sukses
         }
-
-        // Buat kategori baru 
-        ProductCategories::create([
-            'name' => $request->name,
-            // 'description' => $request->description,
-        ]);
-        // Redirect ke halaman kategori dengan pesan sukses
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil disimpan.');
     }
 
     /**
