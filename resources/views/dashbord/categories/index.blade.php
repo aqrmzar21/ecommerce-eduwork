@@ -1,15 +1,14 @@
 @section('title', 'Daftar Kategori');
 <x-app-layout>
     <x-slot name="header" >
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Daftar Kategori') }}
-        </h2>
-        {{--  jika bukan admin maka jangan tampilkan tombol  --}}
-        @if (auth()->user()->role === 'admin')
-        <a href="{{ route('categories.create') }}" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 justify-self-end text-sm">
-            + Tambah Data
-        </a>
-        @endif
+        <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ __('Daftar Kategori') }}
+            </h2>
+            <a href="{{ route('categories.create') }}" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 justify-self-end text-sm">
+                + Tambah Data
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-8">
@@ -31,7 +30,7 @@
             @endif
 
             <div class="overflow-x-auto bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
-                <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700 text-white">
                     
                 <thead class="bg-gray-900">
                     <tr>
@@ -40,7 +39,7 @@
                         <th class="px-4 py-2 text-left">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="text-white">
+                <tbody>
                 @foreach ($kategori as $value)
                     <tr class="border-t">
                         <td class="px-4 py-2">{{ $value->name }}</td>
