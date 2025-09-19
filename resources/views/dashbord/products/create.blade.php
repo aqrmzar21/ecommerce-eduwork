@@ -15,10 +15,8 @@
                     </div>
                 @endif
                 
-                {{-- <form action="{{ route('products.store') }}" method="POST"> --}}
-                <form action="" method="POST">
+                <form action="{{ route('products.store') }}" method="POST">
                     @csrf
-                    
                     <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Produk</label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}" required
@@ -29,19 +27,19 @@
                     </div>
 
                     <div class="mb-4">
-  <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Kategori</label>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-    @foreach ($categories as $category)
-      <label class="inline-flex items-center space-x-2">
-        <input type="radio" name="product_categories_id" value="{{ $category->id }}" {{ old('product_categories_id') == $category->id ? 'checked' : '' }} class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
-        <span class="text-sm text-gray-700 dark:text-gray-300">{{ $category->name }}</span>
-      </label>
-    @endforeach
-  </div>
-  @error('product_categories_id')
-    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
-  @enderror
-</div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Kategori</label>
+                        <div class="flex flex-wrap gap-4">
+                            @foreach ($categories as $category)
+                                <label class="inline-flex items-center space-x-2">
+                                    <input type="radio" name="product_categories_id" value="{{ $category->id }}" {{ old('product_categories_id') == $category->id ? 'checked' : '' }} class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 mr-1">
+                                    <span class="text-sm text-gray-700 dark:text-gray-300">{{ $category->name }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                        @error('product_categories_id')
+                            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                     
                     <div class="mb-4">
                         <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Harga</label>
