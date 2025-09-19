@@ -35,7 +35,8 @@
                             <div>
                             <h2 class="text-lg font-semibold text-gray-700">Jumlah Pengunjung</h2>
                             {{-- <p class="text-3xl font-bold text-green-600 mt-2">{{ $jumlahPengunjung }}</p> --}}
-                            <p class="text-3xl font-bold text-green-600 mt-2">2,345</p>
+                            {{-- <p class="text-3xl font-bold text-green-600 mt-2">2,345</p> --}}
+                            <p class="text-3xl font-bold text-green-600 mt-2"><?= date("is"); ?></p>
                             </div>
                             <div class="text-green-500">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
