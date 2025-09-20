@@ -33,4 +33,18 @@
             </main>
         </div>
     </body>
+    <script>
+    function openModal(id) {
+        fetch(`/products/${id}`)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('modalContent').innerHTML = html;
+                document.getElementById('detailModal').classList.remove('hidden');
+            });
+    }
+
+    function closeModal() {
+        document.getElementById('detailModal').classList.add('hidden');
+    }
+</script>
 </html>

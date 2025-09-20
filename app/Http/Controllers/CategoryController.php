@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $kategori = ProductCategories::withCount('products')->paginate(3);
+        // $kategori = ProductCategories::withCount('products')->paginate(3);
+        $kategori = ProductCategories::withCount('products')->paginate(10);
         return view('dashbord.categories.index', compact('kategori'));
     }
 
@@ -75,19 +76,24 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductCategories $product_categories)
+    public function edit(ProductCategories $category)
     {
-        // Ammbil semua kategori untuk dropdown
-        $categories = ProductCategories::all();
-        return view('dashbord.categories.edit', compact('categories', 'product_categories'));
+        return view('dashbord.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, ProductCategories $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diupdate.');
     }
 
     /**

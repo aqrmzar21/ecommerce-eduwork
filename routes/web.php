@@ -21,11 +21,11 @@ Route::middleware('auth')->group(function () {
 // Route untuk produk
 // Route untuk kategori
 // Roter mengguakan resource
-Route::resource('categories', CategoryController::class);
 
 // Route untuk admin
 Route::middleware(['admin'])->group(function () {
     Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class);
     Route::get('/user', function () {
         return view('users.index');
     })->name('users.index');
