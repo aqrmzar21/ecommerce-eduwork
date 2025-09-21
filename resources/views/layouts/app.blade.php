@@ -39,12 +39,14 @@
             .then(response => response.text())
             .then(html => {
                 document.getElementById('modalContent').innerHTML = html;
-                document.getElementById('detailModal').classList.remove('hidden');
+                document.getElementById('dialog').classList.remove('hidden');
             });
     }
 
     function closeModal() {
-        document.getElementById('detailModal').classList.add('hidden');
+        document.getElementById('dialog').classList.add('hidden');
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> 
+
 </html>

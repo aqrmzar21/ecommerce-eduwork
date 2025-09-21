@@ -116,7 +116,7 @@ class ProductController extends Controller
     // }
     public function show(Product $product)
     {
-        return view('dashbord.products.partials.detail', compact('product'));
+        return view('dashbord.products.detail', compact('product'));
     }
 
     /**
