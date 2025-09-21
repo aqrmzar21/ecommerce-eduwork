@@ -54,9 +54,6 @@
         </div>
     </div>
     </div>
-
-</x-app-layout>
-
 <!-- Modal -->
 <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-lg">
     <div class="bg-white dark:bg-gray-900 p-6 rounded-lg max-w-md">
@@ -67,3 +64,5 @@
         <button onclick="closeModal()" class="mt-4 bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Tutup</button>
     </div>
 </div>
+</x-app-layout>
+

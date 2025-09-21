@@ -27,7 +27,7 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
     Route::get('/user', function () {
-        return view('users.index');
+        return view('dashbord.users.index');
     })->name('users.index');
 });
 
