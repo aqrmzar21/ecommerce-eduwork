@@ -96,7 +96,8 @@ class ProductController extends Controller
 
         // Handle file upload
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('products', 'public');
+            $path = $request->file('image')->store('products', 'public');
+            $validated['image'] = basename($path);
         }
 
         // Simpan produk ke database
@@ -152,7 +153,7 @@ class ProductController extends Controller
             // Ambil hanya nama file-nya
             $validated['image'] = basename($path); // hasil: eQ3PBCSPlN1lZUjwdGRbkVfoqzAEMPlAN1d4vl6O.jpg
         }
-        
+
         // Update data produk
         $product->update($validated);
         // dd($validated);
@@ -165,6 +166,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // hapus produk serta imagenya dari storage
+        if ($product->image) {
+            Storage::disk('public')->delete('products/' . $product->image);
+        }
+        $product->delete();
+        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
     }
 }

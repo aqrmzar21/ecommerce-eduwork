@@ -40,7 +40,8 @@
                                 <button class="text-green-600 hover:underline" onclick="openModal({{ $item->id }})">Detail</button>
                                 {{-- <button command="show-modal" commandfor="dialog" class="text-green-600 hover:underline" onclick="openModal({{ $item->id }})">Show</button> --}}
                                 <a href="{{ route('products.edit', $item->id) }}" class="text-blue-600 hover:underline">Edit</a>
-                                <button class="text-red-600 hover:underline" onclick="alert('Hapus produk ini?')">Hapus</button>
+                                <form action="{{ route('products.destroy', $item->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus produk ini?')">@csrf @method('DELETE')<input type="submit" value="Hapus" class="text-red-600 hover:underline')}}"></form>
+                                {{-- <button class="text-red-600 hover:underline" onclick="confirm('Hapus produk ini?')">Hapus</button> --}}
                             </td>
                         </tr>
                         @endforeach

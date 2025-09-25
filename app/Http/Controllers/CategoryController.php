@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductCategories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -86,21 +88,40 @@ class CategoryController extends Controller
      */
     public function update(Request $request, ProductCategories $category)
     {
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        // ]);
+
+        // $category->name = $request->name;
+        // $category->save();
+
+        // return redirect()->route('categories.index')->with('success', 'Kategori berhasil diupdate.');
+
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
 
-        $category->name = $request->name;
-        $category->save();
-
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diupdate.');
+        // sekarang buat cek untuk validasi nama yang sama dengan kategori lain
+        $name_check = ProductCategories::where('name', $request->name)->where('id', '!=', $category->id)->exists();
+        if ($name_check) {
+            return redirect()->back()->withErrors(['name' => 'Kategori dengan nama tersebut sudah ada.'])->withInput();
+        } else {
+            $category->name = $request->name;
+            $category->save();
+            return redirect()->route('categories.index')->with('success', 'Kategori berhasil diupdate.');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ProductCategories $category)
     {
-        //
+        // menghapus kategori beserta produk yang ada di dalamnya serta hubungan dengan yang adi produk
+        $category = ProductCategories::with('products')->findOrFail($category->id);
+        // $category->products()->detach();     // ini jika penggunaan belongs di Model sesuai dengan tabel
+        $category->products()->delete();
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 }

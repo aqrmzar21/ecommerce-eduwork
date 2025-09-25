@@ -47,7 +47,8 @@
                         <td class="px-4 py-2">{{ $value->products_count }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <a href="{{ route('categories.edit', $value->id) }}" class="text-blue-600 hover:underline">Edit</a>
-                            <button class="text-red-600 hover:underline" onclick="alert('Hapus kategori ini?')">Hapus</button>
+                            <form action="{{ route('categories.destroy', $value->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus kategori ini?')">@csrf @method('DELETE')<input type="submit" value="Hapus" class="text-red-600 hover:underline')}}"></form>
+                            {{-- <button class="text-red-600 hover:underline" onclick="alert('Hapus kategori ini?')">Hapus</button> --}}
                         </td>
                     </tr>
                   @endforeach
