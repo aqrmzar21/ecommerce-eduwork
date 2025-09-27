@@ -15,11 +15,11 @@
                     </div>
                 @endif
                 
-                <form action="" method="POST" enctype=multipart/form-data class="grid grid-cols-2 gap-4">
+                <form action="{{ route('categories.update', $category->id) }}" method="POST" enctype=multipart/form-data class="grid grid-cols-2 gap-4">
                     @csrf
                     @method('PUT') <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Kategori</label>
-                        <input type="text" name="name" id="name" value="{{ old('name', $product_categories->name) }}" required
+                        <input type="text" name="name" id="name" value="{{ old('name', $category->name) }}" required
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         @error('name')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>

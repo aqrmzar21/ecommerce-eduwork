@@ -10,4 +10,7 @@ class ProductCategories extends Model
     public function products() {
         return $this->hasMany(Product::class);
     }
+
+    protected $table = 'product_categories';
+    protected $fillable = ['name', 'description'];
 }
