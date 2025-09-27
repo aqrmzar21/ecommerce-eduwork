@@ -10,16 +10,6 @@
       <div class="hidden md:flex space-x-6">
         
         {{-- // pengecekaan login --}}
-      @if(Route::has('login'))
-        @auth
-          @if (auth()->user()->role === 'admin')
-            <a href="{{ url('/dashboard') }}" class="text-black-700 hover:text-blue-600 font-medium">Dashboard</a>
-          @endif
-          @else 
-          <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
-          <a href="{{ route('login') }}" class="hover:text-black-700 text-blue-600 font-medium">Masuk</a> 
-        @endauth
-      @endif
           {{-- @if (Route::has('register'))
             <a href="{{ route('register') }}" class="hover:text-bold text-blue-600 font-medium">Daftar</a>
           @endif
@@ -28,6 +18,15 @@
           @endif --}}
       </div>
       <div class="hidden sm:flex sm:items-center sm:ms-6">
+        @if(Route::has('login'))
+          @auth
+            @if (auth()->user()->role === 'admin')
+              <a href="{{ route('dashboard') }}" class="text-black-700 hover:text-blue-600 font-medium">Dashboard</a>
+            @endif
+            @else 
+              <a href="{{ route('login') }}" class="hover:text-black-700 text-violet-600 font-medium">Masuk</a> 
+          @endauth
+        @endif
           <x-dropdown align="right" width="48">
               <x-slot name="trigger">
                   <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -61,29 +60,4 @@
           </x-dropdown>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="text-gray-600 hover:text-blue-600 focus:outline-none">
-          ☰
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
-    <a href="/" class="block text-gray-700 hover:text-blue-600 font-medium">Beranda <hr></a>
-    @if (Auth::check())
-      <a href="/logout" class="text-gray-700 hover:text-blue-600 font-medium">Keluar <hr></a>
-    @endif 
-  </div>
-
 </nav>
-
-<script>
-  // Toggle mobile menu
-  document.getElementById('menu-toggle').addEventListener('click', function () {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  });
-</script>

@@ -9,7 +9,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route untuk Tambah Cart
 Route::get('click-produk/{id}', [HomeController::class, 'klikProduk'])->name('products.klikProduk');
