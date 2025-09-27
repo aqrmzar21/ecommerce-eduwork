@@ -31,7 +31,7 @@
       <div class="p-4 text-center">
         <h3 class="text-lg font-bold text-blue-600 mb-1">{{ $item->name }}</h3>
         <p class="text-gray-600 mb-3">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
-        <button class="inline-flex justify-center items-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        <button class="inline-flex justify-center items-center gap-2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-green-600">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11l-1.5-7M7 13h10M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />

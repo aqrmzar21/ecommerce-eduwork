@@ -29,11 +29,11 @@
                             </div>
                         </div>
 
-                        <!-- Card: Jumlah Pengunjung -->
+                        <!-- Card: Jumlah Klik Produk -->
                         <div class="bg-white shadow-md rounded-lg p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                <h2 class="text-lg font-semibold text-gray-700">Jumlah Pengunjung</h2>
+                                <h2 class="text-lg font-semibold text-gray-700">Jumlah Klik Produk</h2>
                                 {{-- <p class="text-3xl font-bold text-green-600 mt-2">{{ $jumlahPengunjung }}</p> --}}
                                 <p class="text-3xl font-bold text-green-600 mt-2"><?= date("is"); ?></p>
                                 </div>
@@ -51,7 +51,7 @@
                             <div class="flex items-center justify-between">
                                 <div>
                                 <h2 class="text-lg font-semibold text-gray-700">Kategori Produk</h2>
-                                <p class="text-3xl font-bold text-red-600 mt-2">{{ $jumlahKategori }}</p>
+                                <p class="text-3xl font-bold text-yellow-500 mt-2">{{ $jumlahKategori }}</p>
                                 </div>
                                 <div class="text-yellow-500">
                                 <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
