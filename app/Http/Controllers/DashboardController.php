@@ -15,7 +15,8 @@ class DashboardController extends Controller
     {
         $jumlahProduk = Produk::count();
         $jumlahKategori = KategoriProduk::count();
-        $jumlahklikProduk = Product::sum('klik');
-        return view('dashboard', compact('jumlahProduk', 'jumlahKategori', 'jumlahklikProduk'));
+        // $jumlahklikProduk = Product::sum('klik');
+        // return view('dashboard', compact('jumlahProduk', 'jumlahKategori', 'jumlahklikProduk'));
+        return view('dashboard', compact('jumlahProduk', 'jumlahKategori'));
     }
 }
