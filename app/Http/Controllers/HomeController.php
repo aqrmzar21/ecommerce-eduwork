@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         // $products = Product::all();
         $products = Produk::paginate(3);
-        return view('home' , compact('products'));
+        return view('page.home' , compact('products'));
     }
 
     public function cart()
