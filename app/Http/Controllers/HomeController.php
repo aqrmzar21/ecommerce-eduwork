@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Produk;
+use App\Models\Product as Produk;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,7 +29,7 @@ class HomeController extends Controller
         $product->save();
 
         // sekarang kita akan beri ntif ke user bahwa produk telah di klik
-        $no_wa = '6282396254673'; // ganti dengan nomor WhatsApp tujuan
+        $no_wa = '6282290316560'; // ganti dengan nomor WhatsApp tujuan
         $text = "Halo, saya ingin memberitahu bahwa produk *" . $product->name . "* telah diklik.\n\n" .
                 "Cek produk di sini: " . route('products.show', $product->id);
         // $message = "Produk *" . $product->name . "* telah diklik.\n\n" .

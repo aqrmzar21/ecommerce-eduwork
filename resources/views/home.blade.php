@@ -16,7 +16,7 @@
     <!-- Produk 3 -->
     @foreach ($products as $item)
     <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">
-      <img src="{{ $item->image }}" alt="Produk C" class="w-full h-48 object-cover">
+      <img src="{{ 'storage/products/' . $item->image }}" alt="Produk C" class="w-full h-48 object-cover">
       <div class="p-4 text-center">
         <h3 class="text-lg font-bold text-blue-600 mb-1">{{ $item->name }}</h3>
         <p class="text-gray-600 mb-3">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
