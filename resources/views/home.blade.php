@@ -1,4 +1,4 @@
-@extends('layout/layout')
+@extends('page.layout')
 @section('title', 'Ecommerce Eduwork')
 
 @section('content')

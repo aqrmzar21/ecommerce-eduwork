@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </head>
 <body>
-@include('layout.header') 
+@include('page.header') 
 {{-- // opsi 1 --}}
 {{-- <x-navbar></x-navbar>  --}}
 {{-- // opsi 2 --}}
 @yield('content')
-@include('layout.footer')
+@include('page.footer')
 </body>
 </html>
