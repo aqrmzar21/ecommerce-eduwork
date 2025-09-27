@@ -21,6 +21,7 @@
                     <thead class="bg-gray-900 text-white">
                         <tr>
                             <th class="px-4 py-2 text-left">Nama Pengguna</th>
+                            <th class="px-4 py-2 text-left">Role</th>
                             <th class="px-4 py-2 text-left">Email</th>
                             <th class="px-4 py-2 text-left">Aksi</th>
                         </tr>
@@ -29,11 +30,16 @@
                         @foreach ($users as $u)
                         <tr class="border-t">
                             <td class="px-4 py-2">{{ $u->name }}</td>
+                            <td class="px-4 py-2">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-violet-100 text-violet-800">
+                                    {{ $u->role }}
+                                </span>
+                            </td>
                             <td class="px-4 py-2">{{ $u->email }}</td> 
-                            <td class="px-4 py-2 space-x-2">Coba
+                            <td class="px-4 py-2 space-x-2">
                                 {{-- <button class="text-violet-900 hover:underline" onclick="openModal({{ $item->id }})">Detail</button> --}}
-                                {{-- <a href="{{ route('products.edit', $item->id) }}" class="text-blue-600 hover:underline">Edit</a> --}}
-                                {{-- <form action="{{ route('users.destroy', $u->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus pengguna ini?')">@csrf @method('DELETE')<input type="submit" value="Hapus" class="text-red-600 hover:underline')}}"></form> --}}
+                                <a href="{{ route('products.edit', $u->id) }}" class="text-blue-600 hover:underline">Edit</a>
+                                <form action="{{ route('users.destroy', $u->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus pengguna ini?')">@csrf @method('DELETE')<input type="submit" value="Hapus" class="text-red-600 hover:underline')}}"></form>
                             </td>
                         </tr>
                         @endforeach
