@@ -9,7 +9,7 @@
       <!-- Navigation Links -->
       <div class="hidden md:flex space-x-6">
         
-        {{-- // pengecekaan login --}}
+          {{-- // pengecekaan login --}}
           {{-- @if (Route::has('register'))
             <a href="{{ route('register') }}" class="hover:text-bold text-blue-600 font-medium">Daftar</a>
           @endif
