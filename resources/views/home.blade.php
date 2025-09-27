@@ -25,7 +25,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11l-1.5-7M7 13h10M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
           </svg>
-          Tambah ke Keranjang
+          Beli Sekarang
         </a>
       </div>
     </div>
