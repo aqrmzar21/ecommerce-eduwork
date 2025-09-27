@@ -24,7 +24,7 @@
               <a href="{{ route('dashboard') }}" class="text-black-700 hover:text-blue-600 font-medium">Dashboard</a>
             @endif
             @else 
-              <a href="{{ route('login') }}" class="hover:text-black-700 text-violet-600 font-medium">Masuk</a> 
+              <a href="{{ route('login') }}" class="hover:text-black-700 text-indigo-600 font-bold">Masuk</a> 
           @endauth
         @endif
           <x-dropdown align="right" width="48">
