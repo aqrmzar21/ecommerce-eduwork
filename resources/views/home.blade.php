@@ -32,9 +32,9 @@
 
   </div>
 
-<div class="max-w mt-2 py-4">
-{{ $products->links() }}
-</div>
+  <div class="max-w mt-2 py-4">
+  {{ $products->links() }}
+  </div>
 </div>
 
 
