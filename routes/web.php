@@ -18,14 +18,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route untuk produk
-// Route untuk kategori
-// Roter mengguakan resource
 
 // Route untuk admin
 Route::middleware(['admin'])->group(function () {
+    // Route untuk produk
     Route::resource('products', ProductController::class);
+    // Route untuk kategori
     Route::resource('categories', CategoryController::class);
+    // Route untuk user
+    // Route::resource('user', UserController::class);
     Route::get('/user', function () {
         return view('dashbord.users.index');
     })->name('users.index');
