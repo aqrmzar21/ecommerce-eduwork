@@ -17,14 +17,11 @@
                         <div class="bg-white shadow-md rounded-lg p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                <h2 class="text-lg font-semibold text-gray-700">Jumlah Produk</h2>
-                                <p class="text-3xl font-bold text-indigo-600 mt-2">{{ $jumlahProduk }}</p>
+                                    <h2 class="text-lg font-semibold text-gray-700">Jumlah Produk</h2>
+                                    <p class="text-3xl font-bold text-indigo-600 mt-2">{{ $jumlahProduk }}</p>
                                 </div>
                                 <div class="text-indigo-500">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3 3h18v18H3V3z"></path>
-                                </svg>
+                                    <i class="fas fa-box text-indigo-500 text-4xl"></i>
                                 </div>
                             </div>
                         </div>
@@ -34,14 +31,10 @@
                             <div class="flex items-center justify-between">
                                 <div>
                                 <h2 class="text-lg font-semibold text-gray-700">Jumlah Klik Produk</h2>
-                                {{-- <p class="text-3xl font-bold text-green-600 mt-2">{{ $jumlahPengunjung }}</p> --}}
-                                <p class="text-3xl font-bold text-green-600 mt-2"><?= date("is"); ?></p>
+                                <p class="text-3xl font-bold text-green-600 mt-2">{{ $jumlahklikProduk }}</p>
                                 </div>
-                                <div class="text-green-500">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17 20h5v-2a4 4 0 00-4-4h-1M9 20H4v-2a4 4 0 014-4h1m0-4a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 100-8 4 4 0 000 8z"></path>
-                                </svg>
+                                <div class="text-red-500">
+                                    <i class="fas fa-eye text-red-500 text-4xl"></i>
                                 </div>
                             </div>
                         </div>
@@ -54,10 +47,7 @@
                                 <p class="text-3xl font-bold text-yellow-500 mt-2">{{ $jumlahKategori }}</p>
                                 </div>
                                 <div class="text-yellow-500">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-                                </svg>
+                                    <i class="fas fa-tags text-yellow-500 text-4xl"></i>
                                 </div>
                             </div>
                         </div>

@@ -13,10 +13,10 @@ class DashboardController extends Controller
     //
     public function dashboard()
     {
+        // memberikan info vard terkait info yang ada di B
         $jumlahProduk = Produk::count();
         $jumlahKategori = KategoriProduk::count();
-        // $jumlahklikProduk = Product::sum('klik');
-        // return view('dashboard', compact('jumlahProduk', 'jumlahKategori', 'jumlahklikProduk'));
-        return view('dashboard', compact('jumlahProduk', 'jumlahKategori'));
+        $jumlahklikProduk = Produk::sum('click');
+        return view('dashboard', compact('jumlahProduk', 'jumlahKategori', 'jumlahklikProduk'));
     }
 }
