@@ -30,9 +30,9 @@
             @endif
 
             <div class="overflow-x-auto bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
-                <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700 text-white">
+                <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700">
                     
-                <thead class="bg-gray-900">
+                <thead class="bg-gray-900 text-white">
                     <tr>
                         <th class="px-4 py-2 text-left">Nama Kategori</th>
                         <th class="px-4 py-2 text-left">Jumlah</th>
