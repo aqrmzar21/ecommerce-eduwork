@@ -36,19 +36,19 @@
         <div class="flex items-center justify-between mt-4">
             <!-- Tombol Sign Up di kiri -->
             <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-gray-400 hover:text-blue-800 dark:hover:text-gray-100 rounded-md px-3 py-2 transition duration-200">
-                {{ __('Sign Up') }}
+                {{ __('Daftar') }}
             </a>
 
             <!-- Bagian kanan: Forgot Password dan Login -->
             <div class="flex items-center space-x-3">
                 @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}" class="text-sm underline text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 px-3 py-2 transition duration-200">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Lupa password?') }}
                     </a>
                 @endif
 
                 <x-primary-button>
-                    {{ __('Log in') }}
+                    {{ __('Masuk') }}
                 </x-primary-button>
             </div>
         </div>
