@@ -29,15 +29,15 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Ingat saya') }}</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center justify-end mt-4">
             <!-- Tombol Sign Up di kiri -->
-            <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-gray-400 hover:text-blue-800 dark:hover:text-gray-100 rounded-md px-3 py-2 transition duration-200">
+            {{-- <a href="{{ route('register') }}" class="text-sm text-blue-600 dark:text-gray-400 hover:text-blue-800 dark:hover:text-gray-100 rounded-md px-3 py-2 transition duration-200">
                 {{ __('Daftar') }}
-            </a>
+            </a> --}}
 
             <!-- Bagian kanan: Forgot Password dan Login -->
             <div class="flex items-center space-x-3">

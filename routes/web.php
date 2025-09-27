@@ -28,13 +28,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('products', ProductController::class);
     // Route untuk kategori
     Route::resource('categories', CategoryController::class);
-    // Route untuk user
+    // Route untuk pengguna
     Route::resource('users', UserController::class);
-    // Route::get('/users', function () {
-    //     return view('dashbord.users.index');
-    // })->name('users.index');
 });
-
 
 
 require __DIR__.'/auth.php';
