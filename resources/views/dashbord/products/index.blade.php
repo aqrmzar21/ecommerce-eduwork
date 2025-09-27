@@ -20,9 +20,9 @@
                 </div>
             @endif
             <div class="overflow-x-auto bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
-                <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700 text-white">
+                <table class="min-w-full w-full divide-y divide-gray-200 dark:divide-gray-700">
                         
-                    <thead class="bg-gray-800">
+                    <thead class="bg-gray-900 text-white">
                         <tr>
                             <th class="px-4 py-2 text-left">Nama Produk</th>
                             <th class="px-4 py-2 text-left">Stok</th>
@@ -37,7 +37,7 @@
                             <td class="px-4 py-2">{{ $item->stock }}</td>
                             <td class="px-4 py-2">{{ $item->category->name }}</td>
                             <td class="px-4 py-2 space-x-2">
-                                <button class="text-green-600 hover:underline" onclick="openModal({{ $item->id }})">Detail</button>
+                                <button class="text-gray-900 hover:underline" onclick="openModal({{ $item->id }})">Detail</button>
                                 {{-- <button command="show-modal" commandfor="dialog" class="text-green-600 hover:underline" onclick="openModal({{ $item->id }})">Show</button> --}}
                                 <a href="{{ route('products.edit', $item->id) }}" class="text-blue-600 hover:underline">Edit</a>
                                 <form action="{{ route('products.destroy', $item->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus produk ini?')">@csrf @method('DELETE')<input type="submit" value="Hapus" class="text-red-600 hover:underline')}}"></form>
