@@ -13,6 +13,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route untuk Tambah Cart
 Route::get('click-produk/{id}', [HomeController::class, 'klikProduk'])->name('products.klikProduk');
 // Route::post('/users', [UserController::class, 'index'])->name('users.index');
+Route::post('/', [HomeController::class, 'search'])->name('home.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

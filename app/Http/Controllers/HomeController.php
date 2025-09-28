@@ -17,10 +17,19 @@ class HomeController extends Controller
         return view('page.home', compact('products'));
     }
 
-    public function cart()
+    public function search(Request $request)
     {
-        return view('page.cart');
+        $keyword = $request->input('keyword');
+        $perPage = Auth::check() && Auth::user()->role === 'admin' ? 3 : 6;
+
+        $products = Produk::where('name', 'like', '%' . $keyword . '%')
+            ->orWhere('description', 'like', '%' . $keyword . '%')
+            ->paginate($perPage);
+
+        // agar keyword tetap di form setelah pencarian
+        return view('page.home', compact('products', 'keyword'));
     }
+
     // buat fungsi klik produk
     public function klikProduk($id)
     {   
