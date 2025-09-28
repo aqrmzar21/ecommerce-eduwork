@@ -16,14 +16,14 @@ class UserSeeder extends Seeder
     {
         // menambahakn user admin
         User::create([
-            'name' => 'Admin',
+            'name' => 'Zufaldi Daysir',
             'email' => 'operator@gg.mu',
-            'password' => Hash::make('password'), // gunakan bcrypt untuk meng-hash password
+            'password' => Hash::make('password'), // gunakan hash untuk meng-hash password
             'role' => 'admin', // set role sebagai 'admin'
         ]);
         User::create([
-            'name' => 'Seller',
-            'email' => 'sell@gg.mu',
+            'name' => 'Izhar Kadir Saputra',
+            'email' => 'user@gg.mu',
             'password' => Hash::make('password'), // gunakan bcrypt untuk meng-hash password
             'role' => 'user', 
         ]);

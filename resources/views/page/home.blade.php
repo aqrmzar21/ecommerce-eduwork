@@ -20,8 +20,11 @@
 <div class="max-w-7xl mx-auto p-8">
   <h2 class="text-2xl font-semibold text-gray-800 mb-6">Daftar Produk</h2>
 
+  @if (Auth::check())
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
+  @else
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-2">
+  @endif
     <!-- Produk 3 -->
     @foreach ($products as $item)
     <div class="rounded-lg overflow-hidden shadow hover:shadow-md transition">

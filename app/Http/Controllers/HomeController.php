@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 use App\Models\Product as Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     //
     public function index()
     {
-        // $products = Product::all();
-        $products = Produk::paginate(3);
-        return view('page.home' , compact('products'));
+        $perPage = Auth::check() && Auth::user()->role === 'admin' ? 3 : 6;
+
+        $products = Produk::paginate($perPage);
+
+        return view('page.home', compact('products'));
     }
 
     public function cart()

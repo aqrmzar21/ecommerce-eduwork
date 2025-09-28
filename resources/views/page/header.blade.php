@@ -24,12 +24,12 @@
               <a href="{{ route('dashboard') }}" class="text-black-700 hover:text-blue-600 font-medium">Dashboard</a>
             @endif
             @else 
-              <a href="{{ route('login') }}" class="hover:text-black-700 text-indigo-600 font-bold">Masuk</a> 
+              <a href="{{ route('login') }}" class="hover:font-bold hover:text-lg hover:text-black-700 text-indigo-600 font-medium">Masuk</a> 
           @endauth
         @endif
           <x-dropdown align="right" width="48">
               <x-slot name="trigger">
-                  <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-blue-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                   @if(Auth::check())
                       <div>{{ Auth::user()->name }}</div>
                       <div class="ms-1">
@@ -38,7 +38,7 @@
                           </svg>
                       </div>
                   @endif
-                  </button>
+                </button>
               </x-slot>
 
               <x-slot name="content">
@@ -50,9 +50,7 @@
                   <form method="POST" action="{{ route('logout') }}">
                       @csrf
 
-                      <x-dropdown-link :href="route('logout')"
-                              onclick="event.preventDefault();
-                                          this.closest('form').submit();">
+                      <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                           {{ __('Log Out') }}
                       </x-dropdown-link>
                   </form>
