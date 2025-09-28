@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,7 +24,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // tampilkan form tambah user
+        return view('dashbord.users.create');
     }
 
     /**
@@ -31,7 +33,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // menyimpan data user baru
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:5',
+            'role' => 'nullable|string|in:admin,user',
+        ]);
+        
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role ?? 'user',
+        ]);
+
+        return redirect()->route('users.index')->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
     /**
@@ -47,7 +64,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // tampilkan form edit user
+        $user = User::findOrFail($id);
+        return view('dashbord.users.edit', compact('user'));
     }
 
     /**
@@ -55,7 +74,24 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // mengupdate data user
+        $user = User::findOrFail($id);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+            'password' => 'nullable|string|min:5',
+            'role' => 'nullable|string|in:admin,user',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->role = $request->role ?? $user->role;
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'Pengguna berhasil diperbarui.');
     }
 
     /**

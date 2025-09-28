@@ -31,7 +31,7 @@
                             <div class="flex items-center justify-between">
                                 <div>
                                 <h2 class="text-lg font-semibold text-gray-700">Jumlah Klik Produk</h2>
-                                <p class="text-3xl font-bold text-green-600 mt-2">{{ $jumlahklikProduk }}</p>
+                                <p class="text-3xl font-bold text-red-600 mt-2">{{ $jumlahklikProduk }}</p>
                                 </div>
                                 <div class="text-red-500">
                                     <i class="fas fa-eye text-red-500 text-4xl"></i>
