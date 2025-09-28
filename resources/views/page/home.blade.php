@@ -10,7 +10,7 @@
     </span>
   <p class="text-gray-700 mb-6">Ayo Mulai berlanja dengan harga terbaik di sini.</p>
   <!-- Form Pencarian Produk -->
-  <form method="POST" action="{{ route('home.search') }}" class="mb-6 flex gap-2">
+  <form method="POST" action="{{ route('home.search') }}" class="mb-6 flex gap-4">
     @csrf
     <input type="search" name="keyword" class="border rounded px-4 py-2 w-full" placeholder="Cari produk...">
     <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-gray-700">Cari</button>
@@ -18,12 +18,12 @@
   @else
     <h1 class="text-3xl font-bold text-indigo-600 mb-2">Selamat Datang di Ecommerce</h1>
   <p class="text-gray-700 mb-6">Temukan produk terbaik dengan harga terbaik di sini.</p>
-  <a href="#" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-blue-700">Lihat Daftar Produk</a>
+  <a href="{{ route('login')}}" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-blue-700">Lihat Daftar Produk</a>
   @endif
 
 </div>
 <div class="max-w-7xl mx-auto p-8">
-  <h2 class="text-2xl font-semibold text-gray-800 mb-6">Daftar Produk</h2>
+  <h2 class="text-2xl font-semibold text-blue-600 mb-6">Daftar Produk</h2>
 
    @if ($products->isEmpty())
     <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded mb-6" role="alert">
@@ -34,15 +34,15 @@
     @if (Auth::check())
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     @else
-    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-4">
     @endif
       <!-- Daftar Produk -->
       @foreach ($products as $item)
       <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-md transition">
         <img src="{{ 'storage/products/' . $item->image }}" alt="Produk C" class="w-full h-48 object-cover">
         <div class="p-4 text-center">
-          <h3 class="text-lg font-bold text-blue-600 mb-1">{{ $item->name }}</h3>
-          <p class="text-gray-600 mb-3">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
+          <h5 class="text-lg font-bold text-blue-600 mb-1">{{ $item->name }}</h5>
+          <p class="text-gray-600 mb-3 lg:text-xs">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
           <a href="{{ route('products.klikProduk', $item->id) }}" class="inline-flex justify-center items-center gap-2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-blue-600">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

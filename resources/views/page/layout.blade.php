@@ -14,5 +14,6 @@
 {{-- // opsi 2 --}}
 @yield('content')
 @include('page.footer')
+<script src="//unpkg.com/alpinejs" defer></script>
 </body>
 </html>
